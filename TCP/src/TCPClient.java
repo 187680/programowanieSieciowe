@@ -1,7 +1,4 @@
-import java.io.BufferedReader;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.Socket;
 
 public class TCPClient {
@@ -10,7 +7,13 @@ public class TCPClient {
 
         System.out.println("Starting Server");
 
+
+
         new Thread(server).start();
+
+        Socket socket = new Socket("localhost", 9000);
+
+        socket.close();
 
         try {
             Thread.sleep(10*1000);
